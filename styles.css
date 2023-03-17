@@ -7,6 +7,8 @@ html,
 body {
   position: relative;
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -29,6 +31,15 @@ header .title {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+header .facebook {
+  margin-left: auto;
+  font-size: 2.5rem;
+}
+
+header .facebook a {
+  color: #ededed;
 }
 
 header svg {
@@ -65,9 +76,10 @@ header .nav-link.active {
 }
 
 .content {
-  padding-top: 30px;
   padding-bottom: 160px;
   text-align: center;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .content .banner {
@@ -75,6 +87,26 @@ header .nav-link.active {
   height: 500px;
   margin-top: -200px;
   object-fit: cover;
+}
+
+.content .layout {
+  margin-bottom: 30px;
+}
+
+.content .layout.background {
+  position: relative;
+}
+
+.content .layout.background:before {
+  background: #e1ebf9;
+  position: absolute;
+  transform: rotate(-2deg);
+  bottom: -20px;
+  left: -50%;
+  right: -50%;
+  height: calc(100% + 40px);
+  content: '';
+  z-index: -1;
 }
 
 .content .layout.right-layout {
@@ -88,13 +120,19 @@ header .nav-link.active {
   vertical-align: middle;
 }
 
-.content .layout .layout-details h4 {
-  margin-bottom: 0.1rem;
-}
-
 .content .layout .layout-details img {
   max-width: 300px;
-  margin-top: 6px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content .layout.left-layout .layout-details img {
+  margin-top: 16px;
+}
+
+.content .layout.right-layout .layout-details img {
+  margin-top: -16px;
+  margin-bottom: 16px;
 }
 
 .content .layout .layout-content {
@@ -110,6 +148,23 @@ header .nav-link.active {
 
 .content .list p {
   margin-bottom: 0.2rem;
+}
+
+.content .layout.event-layout h4 {
+  margin-bottom: 0.1rem;
+}
+
+.content .layout.event-layout p {
+  margin-bottom: 0.2rem;
+}
+
+.content .layout.event-layout .date {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.content .bottom-margin {
+  margin-bottom: 30px;
 }
 
 footer {
@@ -182,6 +237,10 @@ iframe {
     flex-direction: column;
   }
 
+  footer .container .address {
+    text-align: center;
+  }
+
   footer .container a {
     align-self: inherit;
     padding-top: 6px;
@@ -197,5 +256,11 @@ iframe {
 @media (max-width: 575px) {
   .content .layout .layout-details img {
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 330px) {
+  .content .layout .layout-details img {
+    max-width: 80%;
   }
 }
